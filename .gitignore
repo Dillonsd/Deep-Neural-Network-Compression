@@ -1,4 +1,1 @@
-**/test/
-**/train/
-**/model_??.pth
-**/model_???.pth
+**/__pycache__/
