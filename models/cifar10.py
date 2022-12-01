@@ -55,7 +55,7 @@ class CIFAR10:
     
     # Evaluate the models
     evaluator = ModelEvaluator(CNN42, x_test, y_test,
-      os.path.join(os.path.dirname(__file__), 'cifar10'), 'cpu', 10)
+      os.path.join(os.path.dirname(__file__), 'cifar10'), 'cpu')
     evaluator.evaluate()
 
 if __name__ == '__main__':

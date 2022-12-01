@@ -48,7 +48,7 @@ class MNIST:
     
     # Evaluate the models
     evaluator = ModelEvaluator(CNN22, x_test, y_test,
-      os.path.join(os.path.dirname(__file__), 'mnist'), 'cpu', 10)
+      os.path.join(os.path.dirname(__file__), 'mnist'), 'cpu')
     evaluator.evaluate()
 
 if __name__ == '__main__':
