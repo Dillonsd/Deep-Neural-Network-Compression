@@ -12,6 +12,34 @@ Within the `models/` directory, there are subdirectories for each of the models 
 * `pruned_model.tflite` contains the pruned model used in the paper.
 * `clustered_model.tflite` contains the clustered model used in the paper.
 
+## Environmental Setup
+
+Hardware used:  
+NVIDIA Jetson Nano 2GB  
+Compute cluster with 2x Intel Xeon E5-2667 v3's, NVIDIA Titvan V 12GB, and NVIDIA P6000 24GB
+
+### Setting up on the compute cluster
+
+The compute cluster was accessed through ssh. The development environment on the cluster consisted of a docker container running [NVIDIA's L4T Tensorflow image](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/l4t-tensorflow) with Tensorflow's model optimization library added. The docker container runs a Jupyter notebook which is accessed through a local machine over ssh.
+
+### Setting up the NVIDIA Jetson Nano
+
+Instructions for the Jetson Nano are found on [NVIDIA's website](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-2gb-devkit). However, many issues arose when following these steps. Ultimately, the following steps were taken to get the Jetson Nano up and running:
+
+1. Setup an Ubuntu 18.04 LTS OS on a local machine.
+2. Install the NVIDIA SDK Manager on the local machine.
+3. Ground the Jetson Nano's Force Recovery pin.
+4. Connect the Jetson Nano to the local machine via USB.
+5. Use the NVIDIA SDK Manager to flash the Jetson Nano with the latest Jetpack.
+
+## Running the code
+
+The code for the paper is contained in the `models/` directory. The directory contains scripts to train and evaluate each model. Running the script on a desktop computer will attempt to train and evaluate the model, running the script on the Jetson Nano 2GB will only evaluate the models as long as pre-trained weights are available. The scripts are as follows:
+
+* `mnist.py` trains and evaluates the MNIST model.
+* `cifar10.py` trains and evaluates the CIFAR-10 model.
+* `gtsrb.py` trains and evaluates the GTSRB model.
+
 ## Results
 
 The following are results of the different models run on an NVIDIA Jetson Nano 2GB.
